@@ -1,5 +1,5 @@
 class WebAppMailer < ApplicationMailer
-  def mail_method(data,email,subject)
+  def web_app_email(data,email,subject)
     @body=data
     mail(to: email, subject: subject)
   end
