@@ -7,6 +7,7 @@ class SentEmailTest < ActiveSupport::TestCase
 
   test 'if recipient_name is being saved' do
     result = SentEmail.find_by(recipient_name:'Bob')
+    assert_equal 'Bob' , result.recipient_name
   end
 
 end
