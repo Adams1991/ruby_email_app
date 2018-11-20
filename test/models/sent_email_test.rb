@@ -21,7 +21,6 @@ class SentEmailTest < ActiveSupport::TestCase
     assert_equal 'Test Email' , result.subject
   end
 
-
   test 'if body is being saved' do
     result = SentEmail.find_by(body:'We need to test if this saves')
     assert_equal 'We need to test if this saves' , result.body
