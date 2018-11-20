@@ -1,6 +1,30 @@
-<%= form_tag '/path' do%>
-Email : </br><%= text_field_tag 'email', ''%></br>
-subject: </br><%= text_field_tag 'subject', ''%></br>
-Body:<%= text_area_tag 'body', ''%>
-<%= submit_tag "submit",:value => "submit"%>
-<%end%>
+<%= form_with scope: :sent_email, local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :email %><br>
+    <%= form.text_field :email %>
+  </p>
+
+  <p>
+    <%= form.label :subject %><br>
+    <%= form.text_field :subject %>
+  </p>
+
+  <% options = options_from_collection_for_select(@email_template, 'id', 'subject') %>
+  <%= form.select :all_val,  options %>
+
+  <p>
+    <%= form.label :message_preview %><br>
+    <%= form.text_area :message_preview %>
+  </p>
+
+
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
