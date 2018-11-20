@@ -2,7 +2,8 @@ require 'test_helper'
 
 class SentEmailTest < ActiveSupport::TestCase
   def setup
-     @sentEmail = SentEmail.create(recipient_name:'Bob', recipient_email: 'bob@example.com', subject: "Test Email", body: "We need to test if this saves")
+     @emailTemplate = EmailTemplate.create(subject: "Test Email", body: "We need to test if this saves")
+     @sentEmail = SentEmail.create(recipient_name:'Bob', recipient_email: 'bob@example.com', subject: @emailTemplate.subject, body: @emailTemplate.body)
   end
 
   test 'if recipient_name is being saved' do
@@ -25,6 +26,5 @@ class SentEmailTest < ActiveSupport::TestCase
     result = SentEmail.find_by(body:'We need to test if this saves')
     assert_equal 'We need to test if this saves' , result.body
   end
-
 
 end
