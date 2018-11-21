@@ -8,6 +8,7 @@ class SentEmailsController < ApplicationController
        subject =params[:subject]
        recipient_name = params[:name]
        recipient_email = params[:email]
+       email = WebAppMailer.web_app_email(body, recipient_email, subject)
        SentEmail.create(recipient_name: recipient_name, recipient_email: recipient_email, subject: subject, body: body )
   end
 
