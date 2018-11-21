@@ -1,7 +1,16 @@
 class SentEmailsController < ApplicationController
   def new
-    @email_template = EmailTemplate.all
+    @email_templates = EmailTemplate.all
+    @selected_template = ""
   end
+
+  def update_form
+      @selected_template = EmailTemplate.where("template_id = ?", params[:email_template_id])
+      respond_to do |format|
+        format.js
+      end
+  end
+
 
   def create
        body = params[:message_preview]

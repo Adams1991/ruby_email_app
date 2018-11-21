@@ -11,21 +11,21 @@
 
   <p>
     <%= form.label :email_template %><br>
-    <% options = options_from_collection_for_select(@email_template, 'id', 'subject', 1) %>
-    <%= form.select :all_val,  options %>
+    <% options = options_from_collection_for_select(@email_templates, 'id', 'subject', 2) %>
+    <%= form.select :email_template_id,  options %>
   </p>
 
   <p>
     <%= form.label :subject %><br>
-    <%= form.text_field :subject , :value => 'place holder'  %>
+    <%= form.text_field :subject , :value => @email_templates.find_by(subject:"Test Template").subject %>
   </p>
 
   <p>
     <%= form.label :message_preview %><br>
-    <%= form.text_area :message_preview, :value => 'place holder' %>
+    <%= form.text_area :message_preview, :value => @email_templates.find_by(subject:"Test Template").body %>
   </p>
 
   <p>
-    <%= form.submit %>
+    <%= form.submit 'Send Email' %>
   </p>
 <% end %>
