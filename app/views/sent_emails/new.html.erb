@@ -1,4 +1,4 @@
-<%= form_with scope: :sent_email, local: true do |form| %>
+<%= form_with scope: :sent_email, url: sent_emails_path, local: true do |form| %>
   <p>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
@@ -11,7 +11,7 @@
 
   <p>
     <%= form.label :email_template %><br>
-    <% options = options_from_collection_for_select(@email_template, 'subject', 'subject') %>
+    <% options = options_from_collection_for_select(@email_template, 'id', 'subject', 1) %>
     <%= form.select :all_val,  options %>
   </p>
 
@@ -24,8 +24,6 @@
     <%= form.label :message_preview %><br>
     <%= form.text_area :message_preview, :value => 'place holder' %>
   </p>
-
-
 
   <p>
     <%= form.submit %>
