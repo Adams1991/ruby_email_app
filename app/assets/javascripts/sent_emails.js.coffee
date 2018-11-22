@@ -4,9 +4,9 @@
 
 $ ->
   $(document).on 'change', '#template_select', (evt) ->
+      console.log(evt)
     $.ajax 'sent_emails/update_form',
       type: 'GET'
-      dataType: 'script'
       data: {
         email_template_id: $("#template_select option:selected").val()
       }

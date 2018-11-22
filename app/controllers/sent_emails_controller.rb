@@ -6,10 +6,11 @@ class SentEmailsController < ApplicationController
 
   def show
     @selected_template = EmailTemplate.find_by("id = ?", params[:email_template_id])
+    @email_templates = EmailTemplate.all
   end
 
   def update_form
-      @selected_template = EmailTemplate.where("template_id = ?", params[:email_template_id])
+      @selected_template = EmailTemplate.find_by("template_id = ?", params[:email_template_id])
       respond_to do |format|
         format.js
       end
