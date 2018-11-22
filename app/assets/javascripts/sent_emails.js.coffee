@@ -3,14 +3,14 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $(document).on 'change', '#:email_template ', (evt) ->
-    $.ajax 'update_form',
+  $(document).on 'change', '#template_select', (evt) ->
+    $.ajax 'sent_emails/update_form',
       type: 'GET'
       dataType: 'script'
       data: {
-        email_template_id: $("#email_template option:selected").val()
+        email_template_id: $("#template_select option:selected").val()
       }
       error: (jqXHR, textStatus, errorThrown) ->
         console.log("AJAX Error: #{textStatus}")
       success: (data, textStatus, jqXHR) ->
-        console.log("Dynamic country select OK!")
+        console.log("Dynamic template select OK!")

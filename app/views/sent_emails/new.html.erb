@@ -11,18 +11,18 @@
 
   <p>
     <%= form.label :email_template %><br>
-    <% options = options_from_collection_for_select(@email_templates, 'id', 'subject', 2) %>
-    <%= form.select :email_template_id,  options %>
+    <%= form.select :email_template_id,  options_for_select(@email_templates.collect { |template|
+      [template.subject, template.id]}, 1), {}, {id:'template_select'} %>
   </p>
 
   <p>
     <%= form.label :subject %><br>
-    <%= form.text_field :subject , :value => @email_templates.find_by(subject:"Test Template").subject %>
+    <%= form.text_field :subject , :value => @selected_template.subject %>
   </p>
 
   <p>
     <%= form.label :message_preview %><br>
-    <%= form.text_area :message_preview, :value => @email_templates.find_by(subject:"Test Template").body %>
+    <%= form.text_area :message_preview, :value => @selected_template.body %>
   </p>
 
   <p>

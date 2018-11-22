@@ -1,7 +1,11 @@
 class SentEmailsController < ApplicationController
   def new
     @email_templates = EmailTemplate.all
-    @selected_template = ""
+    @selected_template = EmailTemplate.find_by("id = ?", @email_templates.first.id)
+  end
+
+  def show
+    @selected_template = EmailTemplate.find_by("id = ?", params[:email_template_id])
   end
 
   def update_form
