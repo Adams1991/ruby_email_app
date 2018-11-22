@@ -4,7 +4,6 @@
 
 $ ->
   $(document).on 'change', '#template_select', (evt) ->
-      console.log(evt)
     $.ajax 'sent_emails/update_form',
       type: 'GET'
       data: {
