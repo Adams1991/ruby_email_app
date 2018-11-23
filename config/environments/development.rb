@@ -69,7 +69,7 @@ address:              'smtp.gmail.com',
 port:                 587,
 domain:               'example.com',
 user_name:            'emailforapp265@gmail.com',
-password:             ENV['gmail_password'],
+password:             ENV['GMAIL_PASSWORD'],
 authentication:       'plain',
 enable_starttls_auto: true  }
 end
