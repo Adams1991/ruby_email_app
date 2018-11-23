@@ -15,12 +15,12 @@
       [template.subject, template.id]}, 1), {}, {id:'template_select'} %>
   </p>
 
-  <p>
+  <p id="subject_field">
     <%= form.label :subject %><br>
     <%= form.text_field :subject , :value => @selected_template.subject , :required => true %>
   </p>
 
-  <p>
+  <p  id="message_field">
     <%= form.label :message_preview %><br>
     <%= form.text_area :message_preview, :value => @selected_template.body , :required => true %>
   </p>
