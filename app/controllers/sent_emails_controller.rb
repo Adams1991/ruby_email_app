@@ -25,6 +25,7 @@ class SentEmailsController < ApplicationController
        subject = sent_email_hash[:subject]
        recipient_name = sent_email_hash[:name]
        recipient_email = sent_email_hash[:email]
+       
        email = WebAppMailer.web_app_email(body, recipient_email, subject)
        email.deliver_now
        SentEmail.create(recipient_name: recipient_name, recipient_email: recipient_email, subject: subject, body: body )

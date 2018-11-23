@@ -1,12 +1,12 @@
 <%= form_with scope: :sent_email, url: sent_emails_path do |form| %>
   <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
+    <%= form.label :name  %><br>
+    <%= form.text_field :name , :required => true %>
   </p>
 
   <p>
     <%= form.label :email %><br>
-    <%= form.text_field :email %>
+    <%= form.text_field :email , :required => true %>
   </p>
 
   <p>
@@ -17,12 +17,12 @@
 
   <p>
     <%= form.label :subject %><br>
-    <%= form.text_field :subject , :value => @selected_template.subject %>
+    <%= form.text_field :subject , :value => @selected_template.subject , :required => true %>
   </p>
 
   <p>
     <%= form.label :message_preview %><br>
-    <%= form.text_area :message_preview, :value => @selected_template.body %>
+    <%= form.text_area :message_preview, :value => @selected_template.body , :required => true %>
   </p>
 
   <p>
