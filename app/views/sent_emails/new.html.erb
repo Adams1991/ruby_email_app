@@ -12,7 +12,7 @@
   <p>
     <%= form.label :email_template %><br>
     <%= form.select :email_template_subject,  options_for_select(@email_templates.collect { |template|
-      [template, template]}, 1), {}, {id:'template_select'} %>
+      [template, template]}, 1), {:prompt => "Select a Email Template..."}, {id:'template_select'} %>
   </p>
 
   <p id="subject_field">

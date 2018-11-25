@@ -1,24 +1,22 @@
 # README
+Hello Folks,
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple web app for sending emails via the browser. I used this to learn more about Ruby on Rails Ajax calls and Action Mailer.  
 
-Things you may want to cover:
+If you download it please create an file in the configs folder called application.yml with the below format. Add this file to the .gitignore so no one can steal your identity, use your Amazon prime etc.
 
-* Ruby version
+defaults: &defaults
+  GMAIL_EMAIL: 'your gmail email here'
+  GMAIL_PASSWORD: 'your password here'
 
-* System dependencies
+development:
+  <<: *defaults
 
-* Configuration
+test:
+  <<: *defaults
 
-* Database creation
+production:
+  <<: *defaults
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+After that set up just run rails db:seeds followed by rail server then head to http://localhost:3000/. 

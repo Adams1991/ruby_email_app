@@ -91,7 +91,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = {from: 'emailforapp265@gmail.com'}
+  config.action_mailer.default_options = {from: ENV['GMAIL_EMAIL']}
 
 
   config.action_mailer.delivery_method = :smtp
@@ -99,7 +99,7 @@ Rails.application.configure do
   address:              'smtp.gmail.com',
   port:                 587,
   domain:               'example.com',
-  user_name:            'emailforapp265@gmail.com',
+  user_name:             ENV['GMAIL_EMAIL'],
   password:              ENV['GMAIL_PASSWORD'],
   authentication:       'plain',
   enable_starttls_auto: true  }
