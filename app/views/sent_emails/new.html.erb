@@ -1,4 +1,4 @@
-<%= form_with scope: :sent_email, url: sent_emails_path do |form| %>
+<%= form_with scope: :sent_email, url: {action:"create"} do |form| %>
   <p>
     <%= form.label :name  %><br>
     <%= form.text_field :name , :required => true %>

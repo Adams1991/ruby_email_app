@@ -1,6 +1,8 @@
 class SentEmailsController < ApplicationController
+
   def new
     @email_templates = EmailTemplate.pluck(:subject)
+    @selected_template = EmailTemplate.find_by("subject = ?", params[:email_template_subject])
   end
 
   def show
