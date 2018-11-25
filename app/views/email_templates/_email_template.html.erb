@@ -1,3 +1,4 @@
+<%= form_with scope: :sent_email, url: {action:"create"} do |form| %>
 <p>
   <%= form.label :subject %><br>
   <%= form.text_field :subject , :value => @selected_template.subject , :required => true %>
@@ -7,3 +8,4 @@
   <%= form.label :message_preview %><br>
   <%= form.text_area :message_preview, :value => @selected_template.body , :required => true %>
 </p>
+<% end %>

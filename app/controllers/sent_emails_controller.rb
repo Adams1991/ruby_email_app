@@ -18,6 +18,7 @@ class SentEmailsController < ApplicationController
 
 
   def create
+        byebug
        sent_email_hash = params[:sent_email]
 
        body = sent_email_hash[:message_preview]
