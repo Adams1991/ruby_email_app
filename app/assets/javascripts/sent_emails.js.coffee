@@ -13,5 +13,4 @@ $ ->
       error: (jqXHR, textStatus, errorThrown) ->
         console.log("AJAX Error: #{textStatus}")
       success: (data, textStatus, jqXHR) ->
-        console.log(data)
         console.log("Dynamic template select OK!")

@@ -1,11 +1,13 @@
-<%= form_with scope: :sent_email, url: {action:"create"} do |form| %>
 <p>
-  <%= form.label :subject %><br>
-  <%= form.text_field :subject , :value => @selected_template.subject , :required => true %>
+  <%= fields_for :sent_email do |subject| %>
+  <%= subject.label :subject %><br>
+  <%= subject.text_field :subject , :value => @selected_template.subject , :required => true %>
+  <% end %>
 </p>
 
 <p>
-  <%= form.label :message_preview %><br>
-  <%= form.text_area :message_preview, :value => @selected_template.body , :required => true %>
+  <%= fields_for :sent_email do |message_preview| %>
+  <%= message_preview.label :message_preview %><br>
+  <%= message_preview.text_area :message_preview, :value => @selected_template.body , :required => true %>
+  <% end %>
 </p>
-<% end %>
